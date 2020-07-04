@@ -1,0 +1,6 @@
+#mac
+.DS_STORE
+
+# node
+node_modules
+sandbox.html
