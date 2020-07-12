@@ -3,6 +3,7 @@ const { check, validationResult } = require('express-validator');
 const usersRepo = require('../../repositories/users');
 const signupTemplate = require('../../views/admin/auth/singup');
 const signinTemplate = require('../../views/admin/auth/signin');
+const { requireEmail, requirePassword, requirePasswordConfirmation } = require('./validators');
 
 const router = express.Router();
 
@@ -10,36 +11,23 @@ router.get('/signup', (req, res) => {
 	res.send(signupTemplate({ req }));
 });
 
-router.post(
-	'/signup',
-	[
-		check('email').trim().normalizeEmail().isEmail().custom(async (email) => {
-			const existingUser = await usersRepo.getOneBy({ email });
-			if (existingUser) {
-				throw new Error('Email already in use');
-			}
-		}),
-		check('password').trim().isLength({ min: 4, max: 20 }),
-		check('passwordConfirmation').trim().isLength({ min: 4, max: 20 }).custom((passwordConfirmation, { req }) => {
-			if (passwordConfirmation !== req.body.password) {
-				throw new Error('Password confirmation does not match the password');
-			}
-		})
-	],
-	async (req, res) => {
-		const errors = validationResult(req);
-		console.log(errors);
+router.post('/signup', [ requireEmail, requirePassword, requirePasswordConfirmation ], async (req, res) => {
+	const errors = validationResult(req);
 
-		const { email, password, passwordConfirmation } = req.body;
-
-		// create a user in user repo
-		const user = await usersRepo.create({ email, password });
-		// store the id of that user inside the users cookie
-		req.session.userID = user.id;
-
-		res.send('Account Created');
+	if (!errors.isEmpty()) {
+		return res.send(signupTemplate({ req, errors }));
 	}
-);
+	console.log(errors);
+
+	const { email, password, passwordConfirmation } = req.body;
+
+	// create a user in user repo
+	const user = await usersRepo.create({ email, password });
+	// store the id of that user inside the users cookie
+	req.session.userID = user.id;
+
+	res.send('Account Created');
+});
 
 router.get('/signout', (req, res) => {
 	req.session = null;
