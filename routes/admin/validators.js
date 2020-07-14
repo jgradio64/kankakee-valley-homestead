@@ -20,7 +20,7 @@ module.exports = {
 	requirePasswordConfirmation: check('passwordConfirmation')
 		.trim()
 		.isLength({ min: 4, max: 20 })
-		.custom((passwordConfirmation, { req }) => {
+		.custom(async (passwordConfirmation, { req }) => {
 			if (passwordConfirmation !== req.body.password) {
 				throw new Error('Password confirmation does not match the password');
 			}
