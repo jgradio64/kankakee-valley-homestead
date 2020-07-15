@@ -39,7 +39,7 @@ module.exports = {
 	requireValidUserPassword: check('password').trim().custom(async (password, { req }) => {
 		const user = await usersRepo.getOneBy({ email: req.body.email });
 		if (!user) {
-			throw new Error('Email not found');
+			throw new Error('Invalid Password');
 		}
 		const validPassword = await usersRepo.comparePasswords(user.password, password);
 		if (!validPassword) {
