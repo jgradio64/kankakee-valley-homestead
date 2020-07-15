@@ -1,7 +1,12 @@
 [
-	{
-		"email": "test2@test.com",
-		"password": "504036f533c5fbeb16c6a7934c1ef8dd51840d3c3f67c1b0eb0eb4a07f763c8b62a3200a6d9b94b6a8d014467a013ca3f13b6566c9e954d3af0fb770e7b7b6e7.0e1409c62dc0d093",
-		"id": "2d113d13"
-	}
+  {
+    "email": "test2@test.com",
+    "password": "504036f533c5fbeb16c6a7934c1ef8dd51840d3c3f67c1b0eb0eb4a07f763c8b62a3200a6d9b94b6a8d014467a013ca3f13b6566c9e954d3af0fb770e7b7b6e7.0e1409c62dc0d093",
+    "id": "2d113d13"
+  },
+  {
+    "email": "beich@iusb.edu",
+    "password": "fb780367bca8b1b992ddc537b95ec9a7288de2445443eeb0ffc79631c9f01dd512a425c808dd8f3df7e478f944eadb33e210aa271f937a41b80f518b25d8c5d4.d3f062b2a1bc2938",
+    "id": "9b2426c6"
+  }
 ]
