@@ -23,10 +23,10 @@ router.get('/admin/products/new', requireAuth, (req, res) => {
 
 router.post(
 	'/admin/products/new',
+	requireAuth,
 	upload.single('image'),
 	[ requireTitle, requirePrice ],
 	handleErrors(productsNewTemplate),
-	requireAuth,
 	async (req, res) => {
 		console.log(req.body);
 		const image = req.file.buffer.toString('base64');
