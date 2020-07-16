@@ -44,7 +44,7 @@ router.get('/signin', (req, res) => {
 router.post(
 	'/signin',
 	[ requireEmailExists, requireValidUserPassword ],
-	handleErrors(signupTemplate),
+	handleErrors(signinTemplate),
 	async (req, res) => {
 		const { email } = req.body;
 		const user = await usersRepo.getOneBy({ email });
