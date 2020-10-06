@@ -28,7 +28,7 @@ module.exports = ({ content }) => {
                 </div>
                 <div>
                   <ul class="social">
-                    <li><a href=""><i class="fab fa-facebook"></i></a></li>
+                    <li><a href="https://www.facebook.com/Kankakee-Valley-Homestead-652271635220796"><i class="fab fa-facebook"></i></a></li>
                     <li><a href=""><i class="fab fa-twitter"></i></a></li>
                     <li><a href=""><i class="fab fa-linkedin"></i></a></li>
                     <li><a href=""><i class="fab fa-dribbble"></i></a></li>
