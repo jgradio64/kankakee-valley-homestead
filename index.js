@@ -13,7 +13,7 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
 	cookieSession({
-		keys: [ 'aqu7whvj4cx876wowdk132' ]
+		keys: [ "aqu7whvj4cx876wowdk132" ]
 	})
 );
 app.use(authRouter);
