@@ -7,13 +7,25 @@ const adminProductsRouter = require('./routes/admin/products');
 const productsRouter = require('./routes/products');
 const cartsRouter = require('./routes/carts');
 
+// Database
+const mongoose = require('mongoose');
+let url = 'mongodb://localhost:27017/kkvh';
+mongoose
+	.connect(url, { useNewUrlParser: true })
+	.then(() => {
+		console.log('Connected to db');
+	})
+	.catch((err) => {
+		console.log('Error', err.message);
+	});
+
 const app = express();
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
 	cookieSession({
-		keys: [ "aqu7whvj4cx876wowdk132" ]
+		keys: [ 'aqu7whvj4cx876wowdk132' ]
 	})
 );
 app.use(authRouter);
