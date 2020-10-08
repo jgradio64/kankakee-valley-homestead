@@ -11,7 +11,7 @@ const cartsRouter = require('./routes/carts');
 const mongoose = require('mongoose');
 let url = 'mongodb://localhost:27017/kkvh';
 mongoose
-	.connect(url, { useNewUrlParser: true })
+	.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
 	.then(() => {
 		console.log('Connected to db');
 	})
