@@ -1,6 +1,6 @@
 # kankakee-valley-homestead
 
-This website is an E-commerce website being built for a client. It uses Express.js to handle routing, validation and cookies. It uses node.js on the back end. 
+This website is an E-commerce website being built for a client. The techonologies used include JavaScript, HML, CSS and the Bulma CSS framework. Express.js is used to handle routing, validation and cookies. Node.js is sed to handle back end logic. 
 
 ## Current updates being planned and implemented are:
 - Implementing a MongoDB database for the storage of products, carts and admin users.
