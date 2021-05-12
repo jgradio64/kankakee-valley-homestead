@@ -6,8 +6,9 @@ const authRouter = require('./routes/admin/auth');
 const adminProductsRouter = require('./routes/admin/products');
 const productsRouter = require('./routes/products');
 const cartsRouter = require('./routes/carts');
+const keys = require('./keys');
 
-// Database
+// Database connection
 const mongoose = require('mongoose');
 let url = 'mongodb://localhost:27017/kkvh';
 mongoose
@@ -25,9 +26,11 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
 	cookieSession({
-		keys: [ 'aqu7whvj4cx876wowdk132' ]
+		keys: [ keys.cookieSessionKey ]
 	})
 );
+
+// This "activates" the routes, it starts them up when this script is called.
 app.use(authRouter);
 app.use(adminProductsRouter);
 app.use(productsRouter);

@@ -42,15 +42,29 @@ module.exports = ({ items }) => {
                     <div class="column"></div>
                     <div class="column is-four-fifths">
                         <h3 class="subtitle"><b>Shopping Cart</b></h3>
-                        <div>
-                            ${renderedItems}
-                        </div>
+                            <div>
+                                ${renderedItems}
+                            </div>
                         <div class="total message is-info">
-                        <div class="message-header">
-                            Total
-                        </div>
+                            <div class="message-header">Total</div>
                             <h1 class="title">$${totalPrice}</h1>
-                            <button class="button is-primary">Buy</button>
+                            <div class="field">
+                                <input class="input" type="text" placeholder="Delivery Instructions">
+                                <input class="input" type="text" placeholder="Street Address">
+                                <div class="columns">
+                                    <div class="column">
+                                        <input class="input" type="text" placeholder="City">
+                                    </div>
+                                    <div class="column">
+                                        <input class="input" type="text" placeholder="State">
+                                    </div>
+                                    <div class="column">
+                                        <input class="input" type="text" placeholder="Zip Code">
+                                    </div>
+                                </div>
+                                <button class="button is-primary">Buy</button>
+                            </div>
+                            
                         </div>
                     </div>
                     <div class="column"></div>

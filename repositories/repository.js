@@ -18,6 +18,7 @@ module.exports = class Repository {
 		}
 	}
 
+	// 
 	async create(attrs) {
 		attrs.id = this.randomID();
 
@@ -27,14 +28,17 @@ module.exports = class Repository {
 		return attrs;
 	}
 
+	//
 	async getAll() {
 		return JSON.parse(await fs.promises.readFile(this.filename, { encoding: 'utf8' }));
 	}
 
+	// 
 	async writeAll(records) {
 		await fs.promises.writeFile(this.filename, JSON.stringify(records, null, 2));
 	}
 
+	// Generates a random id for the element
 	randomID() {
 		return crypto.randomBytes(4).toString('hex');
 	}
@@ -50,6 +54,7 @@ module.exports = class Repository {
 		await this.writeAll(filteredRecords);
 	}
 
+	// 
 	async update(id, attributes) {
 		const records = await this.getAll();
 		const record = records.find((record) => record.id === id);
@@ -63,6 +68,7 @@ module.exports = class Repository {
 		await this.writeAll(records);
 	}
 
+	// Retrieves a single element by the passed in filter
 	async getOneBy(filters) {
 		const records = await this.getAll();
 
